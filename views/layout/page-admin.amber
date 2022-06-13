@@ -1,0 +1,16 @@
+extends page
+
+block content
+  div.conent-small-inner
+    div.admin-left-block
+      a.admin-menu-item[href="/admin/category/manage"] manage categories
+      a.admin-menu-item[href="/admin/category/create"] create category
+
+    div.admin-right-block
+      h2 #{Title}
+
+      // if .Error
+      //   p ERROR: #{.Error}
+      //   hr
+
+      block adminContent

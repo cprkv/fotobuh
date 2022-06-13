@@ -1,0 +1,32 @@
+!!! 5
+html
+  head
+    meta[charset="UTF-8"]
+    meta[http-equiv="X-UA-Compatible"][content="IE=edge"]
+    meta[name="viewport"][content="width=device-width, initial-scale=1.0"]
+    title fotobuh
+    link[rel="preconnect"][href="https://fonts.googleapis.com"]
+    link[rel="preconnect"][href="https://fonts.gstatic.com"][crossorigin=""]
+    link[href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap"][rel="stylesheet"]
+    link[href="/static/css/main.css"][rel="stylesheet"]
+
+  nav
+    div.nav-list
+      a.current[href="/"]
+        img[id="nav-icon"][src="/static/img/icon.svg"]
+        | latest
+      a[href="#"] portraits
+      a[href="#"] landscapes
+      a[href="#"] unusual
+
+  main
+    block content
+
+  footer
+    div.footer-info
+      | &copy; Chuprakov Vadim, 2022. All Rights Reserved.
+      br
+      | Contact me:
+      a[href="https://t.me/cprkv"] @cprkv
+
+  script[src="/static/lib/js/masonry.pkgd.min.js"]

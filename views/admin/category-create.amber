@@ -1,0 +1,6 @@
+extends ../views/layout/page-admin
+
+block adminContent
+  form[method="post"]
+    input[type="text"][name="name"][placeholder="name"]
+    input[type="submit"][value="create"]

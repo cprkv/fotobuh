@@ -1,0 +1,54 @@
+extends views/layout/page
+
+block content
+  div.simple-grid
+    img[src="/static/previews/im02.jpg"]
+    img[src="/static/previews/im03.jpg"]
+    img[src="/static/previews/im04.jpg"]
+    img[src="/static/previews/im05.jpg"]
+    img[src="/static/previews/im06.jpg"]
+    img[src="/static/previews/im07.jpg"]
+    img[src="/static/previews/im08.jpg"]
+    img[src="/static/previews/im09.jpg"]
+    img[src="/static/previews/im10.jpg"]
+    img[src="/static/previews/im11.jpg"]
+    img[src="/static/previews/im12.jpg"]
+    img[src="/static/previews/im13.jpg"]
+    img[src="/static/previews/im14.jpg"]
+    img[src="/static/previews/im15.jpg"]
+    img[src="/static/previews/im16.jpg"]
+    img[src="/static/previews/im17.jpg"]
+    img[src="/static/previews/im18.jpg"]
+    img[src="/static/previews/im19.jpg"]
+    img[src="/static/previews/im20.jpg"]
+    img[src="/static/previews/im21.jpg"]
+    img[src="/static/previews/im22.jpg"]
+    img[src="/static/previews/im23.jpg"]
+    img[src="/static/previews/im24.jpg"]
+    img[src="/static/previews/im25.jpg"]
+    img[src="/static/previews/im26.jpg"]
+    img[src="/static/previews/im27.jpg"]
+    img[src="/static/previews/im28.jpg"]
+    img[src="/static/previews/im29.jpg"]
+    img[src="/static/previews/im30.jpg"]
+    img[src="/static/previews/im31.jpg"]
+    img[src="/static/previews/im32.jpg"]
+    img[src="/static/previews/im33.jpg"]
+    img[src="/static/previews/im34.jpg"]
+    img[src="/static/previews/im35.jpg"]
+    img[src="/static/previews/im36.jpg"]
+    img[src="/static/previews/im37.jpg"]
+    img[src="/static/previews/im38.jpg"]
+    img[src="/static/previews/im39.jpg"]
+    img[src="/static/previews/im40.jpg"]
+    img[src="/static/previews/im41.jpg"]
+    img[src="/static/previews/im42.jpg"]
+    img[src="/static/previews/im43.jpg"]
+    img[src="/static/previews/im44.jpg"]
+
+// !!! 5
+// html
+//   head
+//     title helo
+//   body
+//     h1 helo world

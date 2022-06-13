@@ -1,0 +1,12 @@
+database:
+  connection: bin/data.db
+  maxOpenConnections: 25
+  maxIdleConnections: 25
+  connectionMaxLifetime: 300
+
+pictures:
+  storage: bin/pic
+  temp: bin/pic-tmp
+
+http:
+  address: :8080

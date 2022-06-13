@@ -1,0 +1,7 @@
+extends ../views/layout/page-admin
+
+block adminContent
+  each $cat in Categories
+    $link = "/admin/category/" + $cat.id
+    a[href=$link] #{$cat.id} #{$cat.name}
+    br

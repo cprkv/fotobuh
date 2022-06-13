@@ -1,0 +1,5 @@
+extends ../views/layout/page-admin
+
+block adminContent
+  h4 ID: #{Category.id}
+  p TODO IMAGES...
