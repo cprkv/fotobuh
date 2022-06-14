@@ -4,7 +4,7 @@ html
     meta[charset="UTF-8"]
     meta[http-equiv="X-UA-Compatible"][content="IE=edge"]
     meta[name="viewport"][content="width=device-width, initial-scale=1.0"]
-    title fotobuh
+    title #{Title} - fotobuh
     link[rel="preconnect"][href="https://fonts.googleapis.com"]
     link[rel="preconnect"][href="https://fonts.gstatic.com"][crossorigin=""]
     link[href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap"][rel="stylesheet"]
@@ -12,12 +12,14 @@ html
 
   nav
     div.nav-list
-      a.current[href="/"]
+      a[href="/"]
+        .current ? Current == "/"
         img[id="nav-icon"][src="/static/img/icon.svg"]
         | latest
-      a[href="#"] portraits
-      a[href="#"] landscapes
-      a[href="#"] unusual
+      each $cat in Categories
+        // if Current == $cat.id - not works
+        $catLink = "/category/" + $cat.id
+        a[href=$catLink] #{$cat.id} #{$cat.name}
 
   main
     block content

@@ -5,11 +5,11 @@ import (
 )
 
 type Picture struct {
-	ID           uint `gorm:"primaryKey;autoIncrement"`
-	Name         string
-	Resolution   int
-	CreatedAt    time.Time   `gorm:"index:,sort:desc"`
-	Categories   []*Category `gorm:"many2many:picture_categories;"`
+	ID         uint `gorm:"primaryKey;autoIncrement"`
+	Name       string
+	FileName   string
+	CreatedAt  time.Time   `gorm:"index:,sort:desc"`
+	Categories []*Category `gorm:"many2many:picture_categories;"`
 }
 
 type Category struct {

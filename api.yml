@@ -9,4 +9,4 @@ pictures:
   temp: bin/pic-tmp
 
 http:
-  address: :8080
+  address: 0.0.0.0:1222

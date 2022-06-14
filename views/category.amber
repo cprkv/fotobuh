@@ -1,0 +1,9 @@
+extends views/layout/page
+
+block content
+  // div.main-border
+  //   h2 #{Category.name}
+  div.simple-grid
+    each $pic in Category.pictures
+      $imLink = "/images/" + $pic.fileName
+      img[src=$imLink][title=$pic.name]

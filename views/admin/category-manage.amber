@@ -1,6 +1,11 @@
 extends ../views/layout/page-admin
 
 block adminContent
+  form[method="post"][action="/admin/category/create"]
+    input[type="text"][name="name"][placeholder="name"]
+    input[type="submit"][value="create"]
+  br
+
   each $cat in Categories
     $link = "/admin/category/" + $cat.id
     a[href=$link] #{$cat.id} #{$cat.name}

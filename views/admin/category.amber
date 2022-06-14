@@ -2,4 +2,18 @@ extends ../views/layout/page-admin
 
 block adminContent
   h4 ID: #{Category.id}
+
+  $deleteLink = "/admin/category/" + Category.id + "/delete"
+  form[method="post"][action=$deleteLink]
+    input[type="submit"][value="delete"]
+
+  // $deleteLink = "/admin/category/" + $cat.id + "/rename"
+  // form[method="post"][action=$deleteLink]
+  //   input[type="submit"][value="rename"]
+
   p TODO IMAGES...
+
+  $uploadLink = "/admin/category/" + Category.id + "/upload"
+  form[method="post"][action=$uploadLink][enctype="multipart/form-data"]
+    input[type="file"][name="file[]"][multiple][accept="image/*,.jpeg,.jpg"]
+    input[type="submit"][value="upload"]
