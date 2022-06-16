@@ -8,7 +8,8 @@ type Picture struct {
 	ID         uint `gorm:"primaryKey;autoIncrement"`
 	Name       string
 	FileName   string
-	CreatedAt  time.Time   `gorm:"index:,sort:desc"`
+	CreatedAt  time.Time `gorm:"index:,sort:desc"`
+	Exif       string
 	Categories []*Category `gorm:"many2many:picture_categories;"`
 }
 

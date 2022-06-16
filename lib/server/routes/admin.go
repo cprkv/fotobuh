@@ -2,6 +2,7 @@ package routes
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"fotobuh/lib"
 	"fotobuh/lib/db"
@@ -11,6 +12,7 @@ import (
 	"strings"
 	"time"
 
+	exif "github.com/dsoprea/go-exif/v3"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"github.com/jbrodriguez/mlog"
@@ -170,6 +172,7 @@ func uploadFile(header *multipart.FileHeader, category *db.Category) error {
 	picture.FileName = fileName
 	picture.CreatedAt = time.Now()
 	picture.Categories = []*db.Category{category}
+	picture.Exif = getExif(resultPath)
 
 	err = db.Context.CreatePicture(picture)
 	if err != nil {
@@ -182,4 +185,43 @@ func uploadFile(header *multipart.FileHeader, category *db.Category) error {
 exitError:
 	os.Remove(resultPath)
 	return err
+}
+
+func getExif(filePath string) string {
+	exifBytes, err := exif.SearchFileAndExtractExif(filePath)
+	if err != nil {
+		mlog.Warning("error reading exif info: %v", err)
+		return ""
+	}
+
+	tags, _, err := exif.GetFlatExifData(exifBytes, nil)
+	if err != nil {
+		mlog.Warning("error reading exif info: %v", err)
+		return ""
+	}
+
+	r := make(map[string]string, 0)
+	for i := 0; i < len(tags); i++ {
+		if strings.Contains(tags[i].TagName, "GPS") ||
+			tags[i].TagName == "CFAPattern" {
+			continue
+		}
+		var value string
+		if tags[i].UnitCount == 1 {
+			value = tags[i].FormattedFirst
+		} else {
+			value = tags[i].Formatted
+		}
+		r[tags[i].TagName] = strings.TrimSpace(value)
+	}
+
+	tagsBytes, err := json.Marshal(r)
+	if err != nil {
+		mlog.Warning("error reading exif info: %v", err)
+		return ""
+	}
+
+	exifInfo := string(tagsBytes)
+	mlog.Trace("exif info: %v", exifInfo)
+	return exifInfo
 }
